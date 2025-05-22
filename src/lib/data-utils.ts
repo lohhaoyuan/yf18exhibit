@@ -62,10 +62,7 @@ export async function getSortedTags(): Promise<
 
   return [...tagCounts.entries()]
     .map(([tag, count]) => ({ tag, count }))
-    .sort((a, b) => {
-      const countDiff = b.count - a.count
-      return countDiff !== 0 ? countDiff : a.tag.localeCompare(b.tag)
-    })
+    .sort((a, b) => a.tag.localeCompare(b.tag))
 }
 
 export function groupPostsByYear(
