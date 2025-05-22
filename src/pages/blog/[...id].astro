@@ -37,7 +37,7 @@ const authors = await parseAuthors(post.data.authors ?? [])
     <div class="col-start-2">
       <Breadcrumbs
         items={[
-          { href: '/blog', label: 'Blog', icon: 'lucide:archive' },
+          { href: '/blog', label: 'Post', icon: 'lucide:archive' },
           { label: post.data.title, icon: 'lucide:file-text' },
         ]}
       />
@@ -55,12 +55,16 @@ const authors = await parseAuthors(post.data.authors ?? [])
     }
     <section class="col-start-2 flex flex-col gap-y-6 text-center">
       <div class="flex flex-col">
-        <h1 class="mb-2 text-4xl leading-tight font-medium text-pretty">
+        <h1
+          class="mb-2 text-4xl leading-tight font-semibold text-pretty sm:text-5xl"
+        >
           {post.data.title}
         </h1>
-
+        <p class="mb-2 text-s leading-tight font-light text-pretty sm:text-m ">
+          {post.data.description || 'No description available'}
+        </p>
         <div
-          class="text-muted-foreground mb-4 flex flex-wrap items-center justify-center gap-2 text-sm"
+          class="text-foreground mb-4 flex flex-wrap items-center justify-center gap-2 text-sm"
         >
           {
             authors.length > 0 && (
